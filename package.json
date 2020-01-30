@@ -10,7 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "csv-parser": "^2.3.2",
+    "csv-writer": "^1.6.0",
+    "csvjson": "^5.1.0",
+    "csvtojson": "^2.0.10",
     "express": "^4.17.1",
+    "fast-csv": "^4.0.2",
     "mongoose": "^5.8.10",
     "nodemon": "^1.19.4"
   }
