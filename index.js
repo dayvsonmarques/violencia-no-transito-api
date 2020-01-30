@@ -1,15 +1,20 @@
+const csvjson = require('csvjson');
+const fs = require('fs');
+
 const db = require('./config/db.js');
 const acidentesRepository = require('./repository/acidentesRepository');
 
-const csv = require('csv-parser');
-const fs = require('fs');
 
-fs.createReadStream('./acidentesREC2019.csv')
-  .pipe(csv())
-  .on('data', (row) => {
-    console.log(row);
-    //acidentesRepository.create(row);
-  })
-  .on('end', () => {
-    console.log('CSV file successfully processed.');
+var data = fs.readFileSync(
+  'acidentesREC2019_resume.csv', {
+    encoding: 'utf8'
   });
+
+var options = {
+  delimiter: ';', // optional
+  quote: '"' // optional
+};
+
+let dados = csvjson.toObject(data, options);
+
+console.log(dados);
